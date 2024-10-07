@@ -17,7 +17,7 @@ async def list_items():
     return "List Items from Path Param"
 
 """
-In this as well we will run "uvicorn path_param:app"" in our env. it will give us ink like "http://127.0.0.1:8000".
+In this as well we will run "uvicorn path_param:app"" in our env. it will give us link like "http://127.0.0.1:8000".
 As earlier in "fast_api_basic", if we just add / to our link (i.e. http://127.0.0.1:8000/) then it will give us error as "{"detail":"Not Found"}" 
 This is because, our method has "/item" and not just "/". hence we need to use "http://127.0.0.1:8000/item"
 """
@@ -63,7 +63,7 @@ class FoodSelect(str, Enum):
     fruits = 'fruits'
     vegitables = 'vegitables'
     cold_drinks = 'cold drinks'
-print(FoodSelect.fruits)
+
 @app.get("/food/{food_name}")
 async def get_food(food_name: FoodSelect):
     
