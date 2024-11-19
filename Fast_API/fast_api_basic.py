@@ -4,22 +4,24 @@ Created on Sun Oct  6 14:22:43 2024
 
 @author: Swapnil N
 This is the Basic Of Fast API
+
 """
 
 from fastapi import FastAPI
 
-#lets intstantiate FastApi
+# lets intstantiate FastApi
 
 app = FastAPI()
 
-#set up a rout which would be used in link to access
-@app.get('/') # this is decorator
 
+# set up a rout which would be used in link to access
+@app.get("/")  # this is decorator
 async def root():
     return "Hello World!!! Nice to see you learning FastAPI :) "
 
+
 """
-Note : Now to run this, we can go to anaconda env and then to particular folder where this file is and the run below command 
+Note : Now to run this, we can go to anaconda env and then navigate to particular path where this file is and the run below command 
 "uvicorn <python file name>:<variable instatntiated for FastApi>  where in this case it is "uvicorn fast_api_basic:app" 
 --> After executing above command, you get a link which could be "http://127.0.0.1:8000".
 --> Copy this link and add rout what we have added i.e. "/" to link and run it in browser i.e. "http://127.0.0.1:8000/".
@@ -33,27 +35,27 @@ To avoid this we can use "uvicorn fast_api_basic:app --reload"
 
 # Lets try with post request
 
-@app.post('/')
 
+@app.post("/")
 async def post_req():
     return "Hello World from Post request"
 
+
 """
-We cannot submit a post request from browser as we can do in get request. 
+We cannot submit a post request from browser as we can do in "get" request. 
 Now to check for this, Fast API gives us very beutifull UI where we need to do "/docs" infront of our link here "http://127.0.0.1:8000"
 Hence we do "http://127.0.0.1:8000/docs" --> This opens Swagger documentation and gives us flexibility and we don't need to install Postman or other things
 """
 
 # On a similar level, we can use other request as well such as put
 
+
 @app.put("/")
 async def put():
     return "Hello World from Put request"
 
 
-
-
-#Just For our knowledge -
+# Just For our knowledge -
 """
 POST Request - The POST method is used to create a new resource on the server. It is used when you want to submit data to the server to create a new resource, such as adding a new user, creating a new post, or sending data to a form submission.
 GET Request - The GET method is used to retrieve or fetch data from the server. This method is used when you want to read or view information from a server without making any changes to the existing data or state of the resource.
