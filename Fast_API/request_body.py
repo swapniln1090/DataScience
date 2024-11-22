@@ -22,7 +22,7 @@ class Item(BaseModel):
 
 @app.post("/items")
 async def get_item(item: Item):
-    return item
+    item_dict = item.dict() # This is a default method that comes with Pydantic
 
 
 # Run code as - "uvicorn request_body:app --reload"
